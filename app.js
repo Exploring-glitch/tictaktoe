@@ -5,7 +5,6 @@ let  resetBtn = document.querySelector("#resetBtn");
 resetBtn.addEventListener('click',()=>{window.location.reload()})
 
 let turnX = true; // player x or player y
-
 let winningPaterns = [ //store your winning patterns 
     [0,1,2],
     [0,3,6],
@@ -47,11 +46,17 @@ const checkingWinner = (x) => {
         let a = x[pattern[0]].innerText; // 0th position of a pattern example- patttern is [1,4,7] so a=1
         let b = x[pattern[1]].innerText; // 1st position of a pattern 
         let c = x[pattern[2]].innerText; // 2nd position of a pattern   
-        console.log(JSON.stringify([a,b,c])==JSON.stringify(['X','X','X']))
+        console.log(JSON.stringify([a,b,c])) 
         if(JSON.stringify([a,b,c])==JSON.stringify(['X','X','X'])){
 
             let msz=document.getElementById("winnertext")
             msz.innerText="X is winner";
+                msz.classList.toggle("hidden")
+        }
+        if(JSON.stringify([a,b,c])==JSON.stringify(['O','O','O'])){
+
+            let msz=document.getElementById("winnertext")
+            msz.innerText="O is winner";
                 msz.classList.toggle("hidden")
         }
             
